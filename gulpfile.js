@@ -3,6 +3,7 @@ var gulp        = require('gulp');
 var concat      = require('gulp-concat');
 var rename      = require('gulp-rename');
 var uglify      = require('gulp-uglify');
+var iife        = require('gulp-iife');
 var browserSync = require('browser-sync');
 
 // All file paths
@@ -35,6 +36,7 @@ var copyLibs = function() {
 var copyModules = function() {
     return gulp.src(PATHS.scripts.src.modules)
         .pipe(concat('main.js'))
+        .pipe(iife())
         .pipe(gulp.dest(PATHS.scripts.dest))
         .pipe(uglify())
         .pipe(rename('main.min.js'))
