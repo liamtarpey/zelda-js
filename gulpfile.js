@@ -5,6 +5,7 @@ var rename      = require('gulp-rename');
 var uglify      = require('gulp-uglify');
 var iife        = require('gulp-iife');
 var browserSync = require('browser-sync');
+var babel       = require('gulp-babel');
 
 // All file paths
 var PATHS = {
@@ -14,7 +15,11 @@ var PATHS = {
                 './src/scripts/libs/phaser.js'
             ],
             modules: [
+                './src/scripts/constants.js',
                 './src/scripts/modules/init.js',
+                './src/scripts/services/audio.service.js',
+                './src/scripts/services/keys.service.js',
+                './src/scripts/services/image.service.js',
                 './src/scripts/modules/**/*.js'
             ]
         },
@@ -36,6 +41,9 @@ var copyLibs = function() {
 var copyModules = function() {
     return gulp.src(PATHS.scripts.src.modules)
         .pipe(concat('main.js'))
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(iife())
         .pipe(gulp.dest(PATHS.scripts.dest))
         .pipe(uglify())

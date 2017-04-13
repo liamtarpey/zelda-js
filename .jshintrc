@@ -1,0 +1,9 @@
+{
+  "indent": 4,
+  "quotmark": true,
+  "loopfunc": true,
+  "esversion": 6,
+  "globals": {
+    "console": false
+  }
+}

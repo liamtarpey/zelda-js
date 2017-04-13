@@ -6,10 +6,21 @@
         <title>Zelda JS</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            canvas {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -175px 0 0 -250px;
+                border: 1px solid #000;
+            }
+        </style>
     </head>
     <body>
-        <h1>Hello world.</h1>
-        <script src="dist/scripts/libs.min.js"></script>
+        <div id="game"></div>
+        <a href="javascript:;" id="js-pause-sound">Pause</a>
+        <a href="javascript:;"  id="js-resume-sound">Resume</a>
+        <script src="dist/scripts/libs.js"></script>
         <script src="dist/scripts/main.js"></script>
     </body>
 </html>
