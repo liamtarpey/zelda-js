@@ -16,10 +16,12 @@ var PATHS = {
             ],
             modules: [
                 './src/scripts/constants.js',
-                './src/scripts/modules/init.js',
+                './src/scripts/services/link.service.js',
+                './src/scripts/services/state.service.js',
                 './src/scripts/services/audio.service.js',
                 './src/scripts/services/keys.service.js',
                 './src/scripts/services/image.service.js',
+                './src/scripts/init.js',
                 './src/scripts/modules/**/*.js'
             ]
         },

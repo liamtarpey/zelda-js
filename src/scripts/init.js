@@ -1,25 +1,27 @@
 let game; // Main game object
-let gameState = 'menu'; // Saves current game state
 let map; // sprite map
-let link; // link sprite
-
-
+let titleImage;
 
 const keyControls = () => {
     if(keyboard.enter.isDown) {
         START_GAME();
     } else if(keyboard.up.isDown) {
-        link.y--;
+        LINK.setDirection('up');
+        linkSprite.y--;
     } else if(keyboard.down.isDown) {
-        link.y++;
+        LINK.setDirection('down');
+        linkSprite.y++;
     } else if(keyboard.left.isDown) {
-        link.x--;
+        LINK.setDirection('left');
+        linkSprite.x--;
     } else if(keyboard.right.isDown) {
-        link.x++;
+        LINK.setDirection('right');
+        linkSprite.x++;
     }
 };
 
 const preload = () => {
+    STATE.set('menu');
     IMAGES.load();
     AUDIO.play(CONSTANTS.sounds.title);
     KEYS.assign();
@@ -27,7 +29,7 @@ const preload = () => {
 
 const create = () => {
     game.stage.backgroundColor = '#ffffff';
-    // game.add.sprite(0, 0, 'title');
+    titleImage = game.add.sprite(0, 0, 'title');
 };
 
 const update = () => {
@@ -42,11 +44,10 @@ const START_GAME = () => {
         return false;
     }
 
-    gameState = 'game';
+    STATE.set('game');
+    titleImage.destroy();
+    LINK.set();
     AUDIO.play(CONSTANTS.sounds.theme);
-    link = game.add.sprite(100, 20, 'link');
-    link.scale.x = 16;
-    link.scale.y = 10;
 };
 
 // Init phaser game engine
