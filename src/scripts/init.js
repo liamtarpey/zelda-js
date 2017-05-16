@@ -1,6 +1,10 @@
+const Constants = require('../constants.js');
+const ImagesFactory = require('../services/image.service.js');
+
 let game; // Main game object
 let map; // sprite map
 let titleImage;
+let link; // link sprite
 
 const keyControls = () => {
     if(keyboard.enter.isDown) {
@@ -21,10 +25,12 @@ const keyControls = () => {
 };
 
 const preload = () => {
-    STATE.set('menu');
-    IMAGES.load();
-    AUDIO.play(CONSTANTS.sounds.title);
-    KEYS.assign();
+    // STATE.set('menu');
+    // IMAGES.load();
+    // AUDIO.play(CONSTANTS.sounds.title);
+    // ImagesFactory.load();
+    // AUDIO.play(Constants.sounds.title);
+    // KEYS.assign();
 };
 
 const create = () => {
@@ -44,14 +50,19 @@ const START_GAME = () => {
         return false;
     }
 
-    STATE.set('game');
-    titleImage.destroy();
-    LINK.set();
-    AUDIO.play(CONSTANTS.sounds.theme);
+    // STATE.set('game');
+    // titleImage.destroy();
+    // LINK.set();
+    // AUDIO.play(CONSTANTS.sounds.theme);
+    // gameState = 'game';
+    // AUDIO.play(Constants.sounds.theme);
+    // link = game.add.sprite(100, 20, 'link');
+    // link.scale.x = 16;
+    // link.scale.y = 10;
 };
 
 // Init phaser game engine
-game = new Phaser.Game(CONSTANTS.canvasWidth, CONSTANTS.canvasHeight, Phaser.AUTO, CONSTANTS.gameWrapper, {
+game = new Phaser.Game(Constants.canvasWidth, Constants.canvasHeight, Phaser.AUTO, Constants.gameWrapper, {
     preload: preload,
     create: create,
     update: update
