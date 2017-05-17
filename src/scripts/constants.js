@@ -16,4 +16,4 @@ const Constants = {
     }
 };
 
-export { Constants } from './constants.js';
+export default Constants;

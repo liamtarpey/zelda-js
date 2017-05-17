@@ -1,10 +1,10 @@
-import { Constants } from './constants.js';
+import Constants from 'constants';
 
 // Private variables
-let game = null;
-let map = null;
-let titleImage = null;
-let link = null;
+// let game = null;
+// let map = null;
+// let titleImage = null;
+// let link = null;
 
 console.log(Constants);
 
